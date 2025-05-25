@@ -1,0 +1,188 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/(auth)/login/login.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+/* app/(auth)/login/login.module.css */
+
+.login_pageContainer__0T__6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #E6FFFA; /* Warna latar belakang utama seperti di globals.css */
+  padding: 2rem 1rem; /* Padding responsif */
+  font-family: 'Inter', sans-serif;
+}
+
+.login_formWrapper__4QMuk {
+  background-color: #fff;
+  padding: 2.5rem; /* Padding yang cukup */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); /* Bayangan lebih jelas */
+  width: 100%;
+  max-width: 420px; /* Lebar maksimum form yang optimal */
+  text-align: center;
+}
+
+.login_logoHeader__oxrOM {
+  margin-bottom: 2rem;
+}
+
+/* Jika Anda menambahkan logo:
+.logoImage {
+  width: 80px; // Sesuaikan ukuran logo
+  margin-bottom: 1rem;
+}
+*/
+
+.login_pageTitle__sbNz7 {
+  font-size: 2rem; /* Ukuran judul yang pas */
+  font-weight: 700;
+  color: #2D3748; /* Warna teks yang konsisten */
+  margin-bottom: 0.5rem;
+}
+
+.login_pageSubtitle__NkkH_ {
+  font-size: 0.95rem;
+  color: #4A5568; /* Warna subjudul yang lebih lembut */
+  margin-bottom: 2rem; /* Jarak yang cukup sebelum form */
+}
+
+.login_loginForm__F76A7 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Jarak antar grup input */
+}
+
+.login_inputGroup__dslfL {
+  text-align: left;
+}
+
+.login_label__CozPw {
+  display: block;
+  font-size: 0.875rem; /* Ukuran label sedikit lebih kecil */
+  font-weight: 500;
+  color: #374151; /* Warna label */
+  margin-bottom: 0.5rem;
+}
+
+.login_input___VACN {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Padding input yang nyaman */
+  border: 1px solid #D1D5DB; /* Border standar */
+  border-radius: 8px; /* Sudut membulat */
+  font-size: 1rem;
+  color: #1F2937;
+  background-color: #F9FAFB; /* Latar belakang input sedikit berbeda */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login_input___VACN::placeholder {
+  color: #9CA3AF;
+}
+
+.login_input___VACN:focus {
+  outline: none;
+  border-color: #38B2AC; /* Warna teal saat fokus */
+  box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.25); /* Bayangan saat fokus */
+  background-color: #fff;
+}
+
+.login_input___VACN:disabled {
+  background-color: #E5E7EB;
+  cursor: not-allowed;
+}
+
+.login_forgotPassword__sSqRk {
+  text-align: right;
+  margin-top: -0.25rem; /* Sedikit penyesuaian posisi */
+  margin-bottom: 0.75rem;
+}
+
+.login_link__Gbcyd {
+  font-size: 0.875rem;
+  color: #4A5568;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login_link__Gbcyd:hover {
+  color: #38B2AC;
+  text-decoration: underline;
+}
+
+.login_linkPrimary__O6XXg {
+  font-size: 0.9rem;
+  color: #38B2AC; /* Warna teal */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login_linkPrimary__O6XXg:hover {
+  color: #2C7A7B; /* Warna teal lebih gelap */
+  text-decoration: underline;
+}
+
+.login_submitButton__OKOet {
+  padding: 0.8rem 1.5rem; /* Padding tombol */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #38B2AC; /* Warna teal */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 0.75rem; /* Margin atas tombol */
+  box-shadow: 0 4px 6px rgba(56, 178, 172, 0.2);
+}
+
+.login_submitButton__OKOet:hover:not(:disabled) {
+  background-color: #319795; /* Warna teal lebih gelap */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(56, 178, 172, 0.25);
+}
+
+.login_submitButton__OKOet:active:not(:disabled) {
+  background-color: #2C7A7B;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(56, 178, 172, 0.2);
+}
+
+.login_submitButton__OKOet:disabled {
+  background-color: #9CA3AF; /* Warna tombol saat nonaktif */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login_alternativeAction__bnR2D {
+  margin-top: 2.5rem; /* Jarak yang lebih jelas */
+  font-size: 0.9rem;
+  color: #4A5568;
+}
+
+.login_errorMessage__yxsPW {
+  background-color: #FEE2E2; /* Latar merah muda untuk error */
+  color: #B91C1C; /* Teks merah tua untuk error */
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  text-align: left;
+  border: 1px solid #FCA5A5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login_formWrapper__4QMuk {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem; /* Tambahkan margin agar tidak terlalu mepet di layar kecil */
+  }
+  .login_pageTitle__sbNz7 {
+    font-size: 1.75rem;
+  }
+  .login_pageSubtitle__NkkH_ {
+    font-size: 0.9rem;
+  }
+}
+

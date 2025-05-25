@@ -1,52 +1,249 @@
+/* page.module.css */
+
+/* Keyframes untuk animasi (dapat disesuaikan atau dihapus jika tidak diinginkan) */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff; /* Latar belakang konten utama putih */
+  width: 100%; /* Membuat .pageWrapper memenuhi seluruh lebar layar */
+  margin: 0;    /* Menghilangkan margin atas/bawah/kiri/kanan untuk .pageWrapper */
+  box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Bayangan bisa dipertahankan atau dihilangkan sesuai selera */
+  /* max-width: 1400px; <-- Dihapus/dikomentari */
+  /* margin: 0 auto; <-- Diubah menjadi margin: 0; */
+}
+
+/* Header styling - Anda perlu membuat elemen header di JSX */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* Anda mungkin ingin menyesuaikan padding ini jika pageWrapper sudah full-width */
+  background-color: #fff;
+  border-bottom: 1px solid #E2E8F0; /* Garis bawah tipis */
+  /* Jika .pageWrapper sudah full-width, Anda mungkin ingin konten header tetap memiliki max-width dan di tengah */
+  /* Contoh:
+    width: 100%;
+    max-width: 1200px; // Atau nilai lain yang sesuai
+    margin-left: auto;
+    margin-right: auto;
+  */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38B2AC; /* Warna teal untuk logo */
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #4A5568;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover, .navLinkActive {
+  color: #38B2AC;
+  text-decoration: underline;
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.signInButton, .registerButton {
+  padding: 0.5rem 1rem;
+  border: 1px solid #38B2AC;
+  border-radius: 25px; /* Lebih bulat, bisa disesuaikan */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.signInButton {
+  color: #38B2AC;
+  background-color: transparent;
+}
+
+.signInButton:hover {
+  background-color: #EDF2F7;
+}
+
+.registerButton {
+  color: #fff;
+  background-color: #38B2AC;
+}
+
+.registerButton:hover {
+  background-color: #319795;
+}
+
+
+/* Main content container */
 .container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  padding: 2rem; /* Padding di dalam .container */
+  align-items: center;
+  text-align: center;
+  background-color: #fff; /* Jika .pageWrapper sudah putih, ini mungkin tidak perlu atau bisa transparan */
+  background-image: radial-gradient(#CBD5E0 0.5px, transparent 0.5px);
+  background-size: 15px 15px;
+  width: 100%; /* Memastikan .container juga mengisi lebar .pageWrapper */
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Konten di dalam .container masih bisa dibatasi lebarnya agar tidak terlalu lebar di layar besar */
+  margin: auto; /* Menengahkan .mainContent jika max-width diterapkan */
+}
+
+.textColumn {
+  flex: 1;
+  padding-right: 0;
+  animation: fadeInSlideUp 0.8s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.imageColumn {
+  flex: 1;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
-  background-color: #f5f5f5;
+  margin-top: 2rem;
+  animation: popIn 0.8s ease-out 0.2s forwards;
+}
+
+.heroImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1A202C;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: #666;
-  text-align: center;
+  font-size: 1.1rem;
+  color: #4A5568;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 500px;
 }
 
-.container {
-  text-align: center;
-  padding: 50px;
-}
-
-.title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.button {
+.button { /* Tombol "Get Started" */
   display: inline-block;
-  background-color: #0070f3;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #38B2AC;
+  border: none;
+  border-radius: 25px; /* Sudah ditingkatkan agar lebih bulat */
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(56, 178, 172, 0.3);
+  animation: popIn 0.6s ease-out 0.4s forwards;
+  opacity: 0;
 }
 
 .button:hover {
-  background-color: #005bb5;
+  background-color: #319795;
+  transform: translateY(-2px) scale(1.03);
 }
 
+.button:active {
+  background-color: #2C7A7B;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem 2rem; /* Sesuaikan padding jika perlu */
+    text-align: left;
+    /* align-items: flex-start; // Mungkin tidak perlu jika .mainContent yang diatur */
+  }
+
+  .mainContent {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .textColumn {
+    padding-right: 2rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .imageColumn {
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+
+  .title {
+    font-size: 3.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+ 
+  .container {
+    padding: 4rem; 
+  }
+  .title {
+    font-size: 3.8rem;
+  }
+}

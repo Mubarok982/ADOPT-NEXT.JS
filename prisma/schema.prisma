@@ -2,7 +2,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  output   = "../src/generated/prisma" // Path output kustom Anda
 }
 
 datasource db {
@@ -10,17 +10,80 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Model User Anda yang sudah dimodifikasi untuk NextAuth.js
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String @unique
-  posts Post[]
+  id            String    @id @default(cuid()) // ID diubah menjadi String CUID
+  name          String?                      // Dibuat opsional
+  email         String?   @unique              // Dibuat opsional, tapi tetap unik jika ada
+  emailVerified DateTime?                    // Field untuk verifikasi email
+  image         String?                      // Field untuk URL gambar profil
+  
+  posts         Post[]                       // Relasi ke Post tetap ada
+  accounts      Account[]                    // Relasi ke Account (NextAuth.js)
+  sessions      Session[]                    // Relasi ke Session (NextAuth.js)
+  // Jika Anda menggunakan fitur Authenticator (misalnya untuk 2FA)
+  // authenticators Authenticator[]
 }
 
+// Model Post Anda, authorId disesuaikan dengan tipe User.id yang baru
 model Post {
   id       Int    @id @default(autoincrement())
   title    String
   content  String
   author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  authorId String // Diubah menjadi String untuk cocok dengan User.id
 }
+
+// Model-model BARU yang dibutuhkan oleh NextAuth.js Prisma Adapter
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId]) // Index untuk performa query userId
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId]) // Index untuk performa query userId
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Model Authenticator (opsional, jika Anda memerlukan fitur WebAuthn/Passkeys)
+// model Authenticator {
+//   credentialID           String    @unique
+//   userId                 String
+//   providerAccountId      String
+//   credentialPublicKey    String
+//   counter                Int
+//   credentialDeviceType   String
+//   credentialBackedUp     Boolean
+//   transports             String?
+//
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   @@index([userId])
+// }

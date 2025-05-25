@@ -1,26 +1,58 @@
+html,
 body {
-  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0; /* Menghilangkan margin default browser */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #E6FFFA; /* Warna latar belakang utama body */
+  color: #2D3748; /* Warna teks default */
+  min-height: 100vh; /* Memastikan body mengisi tinggi viewport */
+  width: 100%; /* Memastikan body mengisi lebar viewport */
+  overflow-x: hidden; /* Mencegah scroll horizontal jika ada konten yang sedikit melebihi batas */
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Styling Form Global (opsional, jika Anda ingin ini berlaku umum) */
 form {
   max-width: 300px;
-  margin: 0 auto;
+  margin: 20px auto; /* Menambahkan sedikit margin atas/bawah untuk form */
 }
 
-input {
+input[type="text"], /* Lebih spesifik untuk input teks, email, password, dll. */
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+textarea { /* Juga bisa untuk textarea */
   width: 100%;
-  padding: 8px;
+  padding: 10px; /* Sedikit padding lebih agar nyaman */
   margin: 10px 0;
+  border: 1px solid #ccc; /* Menambahkan border agar input terlihat jelas */
+  border-radius: 4px; /* Sedikit membulatkan sudut input */
 }
 
-button {
+button,
+input[type="submit"], /* Juga untuk input submit */
+input[type="button"] { /* Juga untuk input button */
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #38B2AC; /* Menggunakan warna teal agar konsisten dengan tema */
   color: white;
   border: none;
+  border-radius: 4px; /* Membulatkan sudut tombol */
   cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #319795; /* Warna teal lebih gelap saat hover */
 }
